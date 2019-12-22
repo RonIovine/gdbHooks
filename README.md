@@ -16,24 +16,26 @@ time, and then sleep for 1 second.
 
 To build the demo program, from this directory run:
 
-$ g++ -g TimerWrapper.cc gdbHooksDemo.cc -o gdbHooksDemo
+`$ g++ -g TimerWrapper.cc gdbHooksDemo.cc -o gdbHooksDemo`
 
 Then run the program from within gdb as follows:
 
-$ gdb gdbHooksDemo -x timerHooks
+`$ gdb gdbHooksDemo -x timerHooks`
 
 Once within the gdb prompt, set a breakpoint at the function 'foo' as follows:
 
-(gdb) break foo
+`(gdb) break foo`
 
 Once the breakpoint is set, run the program as follows:
 
+```
 Breakpoint 1 at 0x400c77: file gdbHooksDemo.cc, line 11.<br>
 (gdb) run<br>
 Starting program: /home/riovine/tools/gdbHooks/gdbHooksDemo<br>
 #0  foo () at gdbHooksDemo.cc:11<br>
 11  {<br>
 (gdb)<br>
+```
 
 Once the program is stopped at the breakpoint, you can just successively run continue
 as follows to see the actual time, and the adjusted time based on the time spent at
@@ -41,6 +43,7 @@ a breakpoint/stopped state as shown below.  As can be seen by comparing the actu
 adjusted times, regardless of how much time is spent at a breakpoint, the adjusted time
 will only reflect the actual process run time.
 
+```
 (gdb) continue<br>
 Actual Elapsed Time: 133324184 usec, Adjusted Elapsed Time: 11112 usec<br>
 Actual Elapsed Time: 133324 msec, Adjusted Elapsed Time: 11 msec<br>
@@ -78,3 +81,4 @@ Actual Elapsed Time: 369 sec, Adjusted Elapsed Time: 5 sec<br>
 Actual Time Of Day: 12-22-2019 13:26:25.512674, Adjusted Time Of Day: 12-22-2019 13:20:21.173001<br>
 
 (gdb)<br>
+```
