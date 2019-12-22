@@ -60,41 +60,41 @@ Actual Time Of Day: 12-22-2019 13:22:32.037598, Adjusted Time Of Day: 12-22-2019
 #0  foo () at gdbHooksDemo.cc:11
 11  {
 (gdb) continue
-#0  <function called from gdb>
+  <function called from gdb>
 Continuing.
 Actual Elapsed Time: 141762466 usec, Adjusted Elapsed Time: 2032749 usec
 Actual Elapsed Time: 141762 msec, Adjusted Elapsed Time: 2032 msec
 Actual Elapsed Time: 141 sec, Adjusted Elapsed Time: 2 sec
 Actual Time Of Day: 12-22-2019 13:22:37.866885, Adjusted Time Of Day: 12-22-2019 13:20:18.137166
-#0  foo () at gdbHooksDemo.cc:11
+  foo () at gdbHooksDemo.cc:11
 11  {
 (gdb) continue
-#0  <function called from gdb>
+  <function called from gdb>
 Continuing.
 Actual Elapsed Time: 202398215 usec, Adjusted Elapsed Time: 3046006 usec
 Actual Elapsed Time: 202398 msec, Adjusted Elapsed Time: 3046 msec
 Actual Elapsed Time: 202 sec, Adjusted Elapsed Time: 3 sec
 Actual Time Of Day: 12-22-2019 13:23:38.502634, Adjusted Time Of Day: 12-22-2019 13:20:19.150423
-#0  foo () at gdbHooksDemo.cc:11
+  foo () at gdbHooksDemo.cc:11
 11  {
 (gdb) continue
-#0  <function called from gdb>
+  <function called from gdb>
 Continuing.
 Actual Elapsed Time: 226610267 usec, Adjusted Elapsed Time: 4057473 usec
 Actual Elapsed Time: 226610 msec, Adjusted Elapsed Time: 4057 msec
 Actual Elapsed Time: 226 sec, Adjusted Elapsed Time: 4 sec
 Actual Time Of Day: 12-22-2019 13:24:02.714686, Adjusted Time Of Day: 12-22-2019 13:20:20.161889
-#0  foo () at gdbHooksDemo.cc:11
+  foo () at gdbHooksDemo.cc:11
 11  {
 (gdb)
 (gdb) continue
-#0  <function called from gdb>
+  <function called from gdb>
 Continuing.
 Actual Elapsed Time: 369408255 usec, Adjusted Elapsed Time: 5068584 usec
 Actual Elapsed Time: 369408 msec, Adjusted Elapsed Time: 5068 msec
 Actual Elapsed Time: 369 sec, Adjusted Elapsed Time: 5 sec
 Actual Time Of Day: 12-22-2019 13:26:25.512674, Adjusted Time Of Day: 12-22-2019 13:20:21.173001
-#0  foo () at gdbHooksDemo.cc:11
+  foo () at gdbHooksDemo.cc:11
 11  {
 (gdb)
 
