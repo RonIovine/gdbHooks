@@ -1,0 +1,16 @@
+define hook-stop
+  call stopProgram()
+  frame
+end
+
+define hook-continue
+  call continueProgram()
+end
+
+define hook-next
+  call continueProgram()
+end
+
+define hook-step
+  call continueProgram()
+end
