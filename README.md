@@ -29,12 +29,12 @@ Once within the gdb prompt, set a breakpoint at the function 'foo' as follows:
 Once the breakpoint is set, run the program as follows:
 
 ```
-Breakpoint 1 at 0x400c77: file gdbHooksDemo.cc, line 11.<br>
-(gdb) run<br>
-Starting program: /home/riovine/tools/gdbHooks/gdbHooksDemo<br>
-#0  foo () at gdbHooksDemo.cc:11<br>
-11  {<br>
-(gdb)<br>
+Breakpoint 1 at 0x400c77: file gdbHooksDemo.cc, line 11.
+(gdb) run
+Starting program: /home/riovine/tools/gdbHooks/gdbHooksDemo
+#0  foo () at gdbHooksDemo.cc:11
+11  {
+(gdb)
 ```
 
 Once the program is stopped at the breakpoint, you can just successively run continue
@@ -44,41 +44,41 @@ adjusted times, regardless of how much time is spent at a breakpoint, the adjust
 will only reflect the actual process run time.
 
 ```
-(gdb) continue<br>
-Actual Elapsed Time: 133324184 usec, Adjusted Elapsed Time: 11112 usec<br>
-Actual Elapsed Time: 133324 msec, Adjusted Elapsed Time: 11 msec<br>
-Actual Elapsed Time: 133 sec, Adjusted Elapsed Time: 0 sec<br>
-Actual Time Of Day: 12-22-2019 13:22:29.428603, Adjusted Time Of Day: 12-22-2019 13:20:16.115524<br>
+(gdb) continue
+Actual Elapsed Time: 133324184 usec, Adjusted Elapsed Time: 11112 usec
+Actual Elapsed Time: 133324 msec, Adjusted Elapsed Time: 11 msec
+Actual Elapsed Time: 133 sec, Adjusted Elapsed Time: 0 sec
+Actual Time Of Day: 12-22-2019 13:22:29.428603, Adjusted Time Of Day: 12-22-2019 13:20:16.115524
 
-(gdb) continue<br>
-Actual Elapsed Time: 135933179 usec, Adjusted Elapsed Time: 1022161 usec<br>
-Actual Elapsed Time: 135933 msec, Adjusted Elapsed Time: 1022 msec<br>
-Actual Elapsed Time: 135 sec, Adjusted Elapsed Time: 1 sec<br>
-Actual Time Of Day: 12-22-2019 13:22:32.037598, Adjusted Time Of Day: 12-22-2019 13:20:17.126578<br>
+(gdb) continue
+Actual Elapsed Time: 135933179 usec, Adjusted Elapsed Time: 1022161 usec
+Actual Elapsed Time: 135933 msec, Adjusted Elapsed Time: 1022 msec
+Actual Elapsed Time: 135 sec, Adjusted Elapsed Time: 1 sec
+Actual Time Of Day: 12-22-2019 13:22:32.037598, Adjusted Time Of Day: 12-22-2019 13:20:17.126578
 
-(gdb) continue<br>
-Actual Elapsed Time: 141762466 usec, Adjusted Elapsed Time: 2032749 usec<br>
-Actual Elapsed Time: 141762 msec, Adjusted Elapsed Time: 2032 msec<br>
-Actual Elapsed Time: 141 sec, Adjusted Elapsed Time: 2 sec<br>
-Actual Time Of Day: 12-22-2019 13:22:37.866885, Adjusted Time Of Day: 12-22-2019 13:20:18.137166<br>
+(gdb) continue
+Actual Elapsed Time: 141762466 usec, Adjusted Elapsed Time: 2032749 usec
+Actual Elapsed Time: 141762 msec, Adjusted Elapsed Time: 2032 msec
+Actual Elapsed Time: 141 sec, Adjusted Elapsed Time: 2 sec
+Actual Time Of Day: 12-22-2019 13:22:37.866885, Adjusted Time Of Day: 12-22-2019 13:20:18.137166
 
-(gdb) continue<br>
-Actual Elapsed Time: 202398215 usec, Adjusted Elapsed Time: 3046006 usec<br>
-Actual Elapsed Time: 202398 msec, Adjusted Elapsed Time: 3046 msec<br>
-Actual Elapsed Time: 202 sec, Adjusted Elapsed Time: 3 sec<br>
-Actual Time Of Day: 12-22-2019 13:23:38.502634, Adjusted Time Of Day: 12-22-2019 13:20:19.150423<br>
+(gdb) continue
+Actual Elapsed Time: 202398215 usec, Adjusted Elapsed Time: 3046006 usec
+Actual Elapsed Time: 202398 msec, Adjusted Elapsed Time: 3046 msec
+Actual Elapsed Time: 202 sec, Adjusted Elapsed Time: 3 sec
+Actual Time Of Day: 12-22-2019 13:23:38.502634, Adjusted Time Of Day: 12-22-2019 13:20:19.150423
 
-(gdb) continue<br>
-Actual Elapsed Time: 226610267 usec, Adjusted Elapsed Time: 4057473 usec<br>
-Actual Elapsed Time: 226610 msec, Adjusted Elapsed Time: 4057 msec<br>
-Actual Elapsed Time: 226 sec, Adjusted Elapsed Time: 4 sec<br>
-Actual Time Of Day: 12-22-2019 13:24:02.714686, Adjusted Time Of Day: 12-22-2019 13:20:20.161889<br>
+(gdb) continue
+Actual Elapsed Time: 226610267 usec, Adjusted Elapsed Time: 4057473 usec
+Actual Elapsed Time: 226610 msec, Adjusted Elapsed Time: 4057 msec
+Actual Elapsed Time: 226 sec, Adjusted Elapsed Time: 4 sec
+Actual Time Of Day: 12-22-2019 13:24:02.714686, Adjusted Time Of Day: 12-22-2019 13:20:20.161889
 
-(gdb) continue<br>
-Actual Elapsed Time: 369408255 usec, Adjusted Elapsed Time: 5068584 usec<br>
-Actual Elapsed Time: 369408 msec, Adjusted Elapsed Time: 5068 msec<br>
-Actual Elapsed Time: 369 sec, Adjusted Elapsed Time: 5 sec<br>
-Actual Time Of Day: 12-22-2019 13:26:25.512674, Adjusted Time Of Day: 12-22-2019 13:20:21.173001<br>
+(gdb) continue
+Actual Elapsed Time: 369408255 usec, Adjusted Elapsed Time: 5068584 usec
+Actual Elapsed Time: 369408 msec, Adjusted Elapsed Time: 5068 msec
+Actual Elapsed Time: 369 sec, Adjusted Elapsed Time: 5 sec
+Actual Time Of Day: 12-22-2019 13:26:25.512674, Adjusted Time Of Day: 12-22-2019 13:20:21.173001
 
-(gdb)<br>
+(gdb)
 ```
