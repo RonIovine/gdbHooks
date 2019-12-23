@@ -16,6 +16,8 @@ static unsigned long long breakpointTime  = 0;   // accumulated breakpoint time
 
 // returns the actual, raw, unadjusted epoch time in usec
 static unsigned long long getActualTimeUsec(void);
+static void stopProgram(void);
+static void continueProgram(void);
 
 ///////////////////////////////
 // public functions
@@ -115,13 +117,13 @@ unsigned long long getElapsedTimeSec(void)
 
 // the next two functions are the GDB callback hooks which get installed
 // via the file 'timerHooks' which is loaded at the GDB command line startup
-void stopProgram(void)
+static void stopProgram(void)
 {
   // lay down the actual time at program stop
   stopTime = getActualTimeUsec();
 }
 
-void continueProgram(void)
+static void continueProgram(void)
 {
   // accumulate the total time we've spent at breakpoints
   breakpointTime += getActualTimeUsec() - stopTime;
@@ -131,7 +133,7 @@ void continueProgram(void)
 // private functions
 ///////////////////////////////
 
-unsigned long long getActualTimeUsec(void)
+static unsigned long long getActualTimeUsec(void)
 {
   struct timeval timeOfDay;
   gettimeofday(&timeOfDay, NULL);

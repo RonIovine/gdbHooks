@@ -23,9 +23,16 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+#ifndef TIMER_WRAPPER_H
+#define TIMER_WRAPPER_H
+
 // time unit conversion constants
 #define USEC_PER_SEC 1000000
 #define USEC_PER_MSEC 1000
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 // this function has the exact same prototype and usage as the
 // normal system gettimeofday function but will adjust the returned
@@ -76,3 +83,8 @@ unsigned long long getElapsedTimeMsec(void);
 // called as the very first thing done in the program's 'main'
 unsigned long long getElapsedTimeSec(void);
 
+#ifdef __cplusplus
+}
+#endif
+
+#endif
