@@ -6,6 +6,7 @@
 //////////////////////////
 // private data members
 //////////////////////////
+
 static unsigned long long startTime       = 0;   // program start time (actual)
 static unsigned long long stopTime        = 0;   // breakpoint stop time (actual)
 static unsigned long long breakpointTime  = 0;   // accumulated breakpoint time
@@ -29,12 +30,13 @@ static void continueProgram(void);
 int getTimeOfDay(struct timeval *tv, struct timezone *tz)
 {
   // get current epoch time
-  gettimeofday(tv, tz);
+  int retCode = gettimeofday(tv, tz);
   // convert to usec and adjust time for the amount we've spent at a breakpoint
   unsigned long long adjustedTime = (tv->tv_sec*USEC_PER_SEC+tv->tv_usec)-breakpointTime;
   // reset adjusted values back into the tv structure
   tv->tv_sec = adjustedTime/USEC_PER_SEC;
   tv->tv_usec = adjustedTime%USEC_PER_SEC;
+  return (retCode);
 }
 
 // this function will return the number of usec since the epoch
@@ -111,6 +113,18 @@ unsigned long long getElapsedTimeSec(void)
   return (getElapsedTimeUsec()/USEC_PER_SEC);
 }
 
+///////////////////////////////
+// private functions
+///////////////////////////////
+
+static unsigned long long getActualTimeUsec(void)
+{
+  struct timeval timeOfDay;
+  gettimeofday(&timeOfDay, NULL);
+  // convert to microseconds and return
+  return ((unsigned long long)(timeOfDay.tv_sec*USEC_PER_SEC + timeOfDay.tv_usec));
+}
+
 /////////////////////////////////
 // GDB timer callback hooks
 /////////////////////////////////
@@ -129,14 +143,3 @@ static void continueProgram(void)
   breakpointTime += getActualTimeUsec() - stopTime;
 }
 
-///////////////////////////////
-// private functions
-///////////////////////////////
-
-static unsigned long long getActualTimeUsec(void)
-{
-  struct timeval timeOfDay;
-  gettimeofday(&timeOfDay, NULL);
-  // convert to microseconds and return
-  return ((unsigned long long)(timeOfDay.tv_sec*USEC_PER_SEC + timeOfDay.tv_usec));
-}

@@ -17,12 +17,14 @@ void foo(void)
   char actualTimeOfDayBuf[64];
   char adjustedTimeOfDayBuf[64];
 
+  // get the actual time of day by using the real system gettimeofday function
   gettimeofday(&actualTimeOfDay, NULL);
   nowtime = actualTimeOfDay.tv_sec;
   nowtm = localtime(&nowtime);
   strftime(tmbuf, sizeof tmbuf, "%m-%d-%Y %H:%M:%S", nowtm);
   snprintf(actualTimeOfDayBuf, sizeof actualTimeOfDayBuf, "%s.%06ld", tmbuf, actualTimeOfDay.tv_usec);
 
+  // get the breakpoint adjusted time of day by calling the wrapper funcition getTimeOfDat
   getTimeOfDay(&adjustedTimeOfDay, NULL);
   nowtime = adjustedTimeOfDay.tv_sec;
   nowtm = localtime(&nowtime);
