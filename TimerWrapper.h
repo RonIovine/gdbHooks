@@ -13,7 +13,7 @@
 //
 // When running within GDB, GDB must be started with the timerHooks file to
 // install the proper GDB callback hooks for timer management.  Here is an
-// example of of onvoking GDB for your target process and timerHooks:
+// example of of invoking GDB for your target process and timerHooks:
 //
 // $ gdb myProcess -x timerHooks
 //
@@ -26,13 +26,15 @@
 #ifndef TIMER_WRAPPER_H
 #define TIMER_WRAPPER_H
 
-// time unit conversion constants
-#define USEC_PER_SEC 1000000
-#define USEC_PER_MSEC 1000
-
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+////////////////////////////////////////////////////////////////////////////////
+// constants
+////////////////////////////////////////////////////////////////////////////////
+#define USEC_PER_SEC 1000000
+#define USEC_PER_MSEC 1000
 
 ////////////////////////////////////////////////////////////////////////////////
 // this function has the exact same prototype and usage as the normal system
