@@ -24,7 +24,7 @@ void foo(void)
   strftime(tmbuf, sizeof tmbuf, "%m-%d-%Y %H:%M:%S", nowtm);
   snprintf(actualTimeOfDayBuf, sizeof actualTimeOfDayBuf, "%s.%06ld", tmbuf, actualTimeOfDay.tv_usec);
 
-  // get the breakpoint adjusted time of day by calling the wrapper funcition getTimeOfDat
+  // get the breakpoint adjusted time of day by calling the wrapper funcition getTimeOfDay
   getTimeOfDay(&adjustedTimeOfDay, NULL);
   nowtime = adjustedTimeOfDay.tv_sec;
   nowtm = localtime(&nowtime);
@@ -39,10 +39,17 @@ void foo(void)
   sleep(1);
 }
 
+// IMPORTANT!! Create a class that we can instantiate in global space so we can
+// lay down our initial startTime before we hit the breakpoint at 'main', which
+// will cause us to lay down our initial program startTime, if we don't do this
+// and set the initial startTime in 'main', we end up with an initial program
+// startTime that is LATER than our first breakpoint stopTime, causing all of
+// our subsequent time adjustments to be incorrect
+struct SetStartTime {SetStartTime(){setStartTime();};};
+SetStartTime startTime;
+
 int main(int argc, char *argv[])
 {
-  // set our program start time baseline for elapsed time calculations
-  setStartTime();
   for (;;)
   {
     foo();

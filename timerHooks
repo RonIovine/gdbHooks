@@ -7,10 +7,37 @@ define hook-continue
   call continueProgram()
 end
 
+define hook-finish
+  call continueProgram()
+end
+
+define hook-advance
+  call continueProgram()
+end
+
 define hook-next
+  call continueProgram()
+end
+
+define hook-nexti
   call continueProgram()
 end
 
 define hook-step
   call continueProgram()
 end
+
+define hook-stepi
+  call continueProgram()
+end
+
+define hook-signal
+  call continueProgram()
+end
+
+define hook-until
+  call continueProgram()
+end
+
+start
+
