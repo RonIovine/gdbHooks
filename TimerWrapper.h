@@ -34,53 +34,66 @@
 extern "C" {
 #endif
 
-// this function has the exact same prototype and usage as the
-// normal system gettimeofday function but will adjust the returned
-// values based on any time spent at a GDB breakpoint
+////////////////////////////////////////////////////////////////////////////////
+// this function has the exact same prototype and usage as the normal system
+// gettimeofday function but will adjust the returned values based on any time
+// spent at a GDB breakpoint
+////////////////////////////////////////////////////////////////////////////////
 int getTimeOfDay(struct timeval *tv, struct timezone *tz);
 
-// this function will return the number of usec since the epoch
-// adjusted for any time spent at a GDB breakpoint
+////////////////////////////////////////////////////////////////////////////////
+// this function will return the number of usec since the epoch adjusted for
+// any time spent at a GDB breakpoint
+////////////////////////////////////////////////////////////////////////////////
 unsigned long long getEpochTimeUsec(void);
 
-// this function will return the number of usec since the epoch
-// adjusted for any time spent at a GDB breakpoint
+////////////////////////////////////////////////////////////////////////////////
+// this function will return the number of usec since the epoch adjusted for
+// any time spent at a GDB breakpoint
+////////////////////////////////////////////////////////////////////////////////
 unsigned long long getEpochTimeMsec(void);
 
-// this function will return the number of usec since the epoch
-// adjusted for any time spent at a GDB breakpoint
+////////////////////////////////////////////////////////////////////////////////
+// this function will return the number of usec since the epoch adjusted for
+// any time spent at a GDB breakpoint
+////////////////////////////////////////////////////////////////////////////////
 unsigned long long getEpochTimeSec(void);
 
-// set the programs start time, this will establish a baseline
-// for all future calls to all the below getElapsedTimeXXX
-// functions, this function should be called as the very first
-// thing in the program's 'main', if it is called at other
-// places in the program's execution, it will re-establish the
-// baseline for all future elapsed time calculations
+////////////////////////////////////////////////////////////////////////////////
+// set the programs start time, this will establish a baseline for all future
+// calls to all the below getElapsedTimeXXX functions, this function should be
+// called per-the example in the gdbHooksDemo.cc program.  It should be called
+// before the 'main' as part of a class bases instantiation.
+////////////////////////////////////////////////////////////////////////////////
 void setStartTime(void);
 
+////////////////////////////////////////////////////////////////////////////////
 // returns the program's start time baseline
+////////////////////////////////////////////////////////////////////////////////
 unsigned long long getStartTime(void);
 
-// this function will return the elapsed program run time in
-// usec since the start of the program execution, adjusted
-// for any time spent at a GDB breakpoint, in order for this
-// to work correctly, the 'setStartTime' function must be
-// called as the very first thing done in the program's 'main'
+////////////////////////////////////////////////////////////////////////////////
+// this function will return the elapsed program run time in usec since the
+// start of the program execution, adjusted for any time spent at a GDB
+// breakpoint, in order for this to work correctly, the 'setStartTime' function
+// must be called as per the example in the gdbDemoHooks.cc program
+////////////////////////////////////////////////////////////////////////////////
 unsigned long long getElapsedTimeUsec(void);
 
-// this function will return the elapsed program run time in
-// msec since the start of the program execution, adjusted
-// for any time spent at a GDB breakpoint, in order for this
-// to work correctly, the 'setStartTime' function must be
-// called as the very first thing done in the program's 'main'
+////////////////////////////////////////////////////////////////////////////////
+// this function will return the elapsed program run time in msec since the
+// start of the program execution, adjusted for any time spent at a GDB
+// breakpoint, in order for this to work correctly, the 'setStartTime' function
+// must be called as per the example in the gdbDemoHooks.cc program
+////////////////////////////////////////////////////////////////////////////////
 unsigned long long getElapsedTimeMsec(void);
 
-// this function will return the elapsed program run time in
-// sec since the start of the program execution, adjusted
-// for any time spent at a GDB breakpoint, in order for this
-// to work correctly, the 'setStartTime' function must be
-// called as the very first thing done in the program's 'main'
+////////////////////////////////////////////////////////////////////////////////
+// this function will return the elapsed program run time in sec since the
+// start of the program execution, adjusted for any time spent at a GDB
+// breakpoint, in order for this to work correctly, the 'setStartTime' function
+// must be called as per the example in the gdbDemoHooks.cc program
+////////////////////////////////////////////////////////////////////////////////
 unsigned long long getElapsedTimeSec(void);
 
 #ifdef __cplusplus
