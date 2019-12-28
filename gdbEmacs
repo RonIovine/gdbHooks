@@ -1,0 +1,23 @@
+#!/bin/bash
+if [ $# -eq 1 ]
+then
+  if [ $1 == "-h" ]
+  then
+    echo
+    echo "Usage: gdbEmacs <targetProgram>"
+    echo
+    exit
+  fi
+else
+  echo
+  echo "Usage: gdbEmacs <targetProgram>"
+  echo
+  exit
+fi
+export GDK_NATIVE_WINDOWS=1
+targetProgram=$1
+# change this to include a full path if the timer hooks file is in a
+# different directory than the current directory
+timerHooksFile=./timerHooks
+gdbEmacs() { emacs -g 220x50 --eval "(gdb \"gdb -i=mi ${targetProgram} -x ${timerHooksFile} --cd=`pwd`\")" > /dev/null 2>&1 & }
+gdbEmacs

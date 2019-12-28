@@ -1,0 +1,21 @@
+#!/bin/bash
+if [ $# -eq 1 ]
+then
+  if [ $1 == "-h" ]
+  then
+    echo
+    echo "Usage: gdbCli <targetProgram>"
+    echo
+    exit
+  fi
+else
+  echo
+  echo "Usage: gdbCli <targetProgram>"
+  echo
+  exit
+fi
+targetProgram=$1
+# change this to include a full path if the timer hooks file is in a
+# different directory than the current directory
+timerHooksFile=./timerHooks
+gdb $targetProgram -x $timerHooksFile

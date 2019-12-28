@@ -39,5 +39,20 @@ define hook-until
   call continueProgram()
 end
 
-start
+define hex
+  x /$arg1xb $arg0
+end
 
+define dec
+  x /$arg1ub $arg0
+end
+
+define bin
+  x /$arg1tb $arg0
+end
+
+define string
+  x/s $arg0
+end
+
+start

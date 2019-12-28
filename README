@@ -15,9 +15,9 @@ To build the demo program, from this directory run:
 
 $ g++ -g TimerWrapper.cc gdbHooksDemo.cc -o gdbHooksDemo
 
-Then run the program from within gdb as follows:
+Then run the program from within gdb in CLI mode type:
 
-$ gdb gdbHooksDemo -x timerHooks
+$ gdbCli gdbHooksDemo
 
 Once within the gdb prompt, set a breakpoint at the function 'foo' as follows:
 
