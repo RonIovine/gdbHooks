@@ -42,7 +42,7 @@ as necessary.
 This section describes running the demo program in command line mode.  There is
 a simple shell script wrapper around the 'gdb' command line program.
 
-Then run the program from within gdb as follows:
+Run the program from within gdb in CLI mode as follows:
 
 `$ gdbCli gdbHooksDemo`
 
@@ -104,7 +104,7 @@ GNU gdb (Ubuntu 7.7.1-0ubuntu5~14.04.3) 7.7.1
 
 There is a simple shell script wrapper around the 'gdb' command line program.
 
-Run the program from within gdb using Emacs/GUD as the graphical front end as follows:
+Run the program from within gdb in Emacs/GUD mode as the graphical front end as follows:
 
 `$ gdbEmacs gdbHooksDemo`
 
