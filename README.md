@@ -11,7 +11,7 @@
 ### Overview
 This package contians code and examples for building a timer based process
 with the capability to be run withing GDB and still maintain all its original
-timing characteristics.  It includes a simple module, TimerWrapper.h/cc, that
+timing characteristics.  It includes a simple module, `TimerWrapper.h/cc`, that
 will encapsulate all access to the system get time functions and will adjust
 the value returned for any time spent stopped at a GDB breakpoint.  This module
 should be built/linked with an application.  All calls to get the system time
@@ -19,7 +19,7 @@ from the process must be done via these functions.
 
 There is a demo program provided that can be run to show the functionality of
 this package.  This demo program has a simple infinite loop with a call to a
-function, 'foo', that will print out the actual system time and the adusted
+function, `foo`, that will print out the actual system time and the adusted
 time, and then sleep for 1 second.
 
 <a name="building"></a>
