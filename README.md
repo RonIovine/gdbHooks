@@ -29,9 +29,12 @@ To build the demo program, from this directory run:
 `$ g++ -g TimerWrapper.cc gdbHooksDemo.cc -o gdbHooksDemo`
 
 <a name="setup"></a>
-### Setup+
-To setup for emacs use, copy the included .emacs file to your home directory and edit
-the file and edit the file per the instructions in the comments.
+### Setup
+To setup for emacs use, copy the included `.emacs` file to your home directory and edit
+the file and edit the file per the instructions in the comments.  Also, place the shell
+scripts `gdbCli` and `gdbEmacs` and the `timerHooks` file in other locations as necessary
+and edit the `gdbCli` and `gdbEmacs` files and change the location of the `timerHooks` file
+as necessary.
 
 <a name="cliMode"></a>
 ### CLI Mode
@@ -96,16 +99,16 @@ Actual Time Of Day: 12-22-2019 13:26:25.512674, Adjusted Time Of Day: 12-22-2019
 This section describes running programs via the Emacs/GUD GDB graphical front end.  This has
 been tested with the following versions of emacs and gdb:
 
-GNU Emacs 24.3.1
+GNU Emacs 24.3.1<br>
 GNU gdb (Ubuntu 7.7.1-0ubuntu5~14.04.3) 7.7.1
 
 There is a simple shell script wrapper around the 'gdb' command line program.
 
-Then run the program from within gdb using Emacs/GUD as the graphical front end as follows:
+Run the program from within gdb using Emacs/GUD as the graphical front end as follows:
 
 `$ gdbEmacs gdbHooksDemo`
 
-***IMPORTANT NOTE When running via the Emacs/GUD based front end DO NOT use any of
+***IMPORTANT NOTE: When running via the Emacs/GUD based front end DO NOT use any of
 the graphical buttons (i.e. 'run', 'continue' etc) for program control and execution.
 This is because with the latest Emacs/GUD/GDB intgegration, it uses the gud-mi based
 interface, so all of the gdb commands are preceeded with the '-exec-' prefix, i.e.
