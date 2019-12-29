@@ -24,13 +24,15 @@ timerHooksFile=./timerHooks
 
 # use this for emacs23, emacs23 is recommended because it does not use the -i=mi machine interface option
 # so the GUI based program control uses the normal GDB commands, which will work with the all the timer hooks
-gdbEmacs() { emacs23 -g 220x50 --eval "(gdb \"gdb --annotate=3 ${targetProgram} -x ${timerHooksFile} --cd=`pwd`\")" > /dev/null 2>&1 & }
+gdbEmacs23() { emacs23 -g 220x50 --eval "(gdb \"gdb --annotate=3 ${targetProgram} -x ${timerHooksFile} --cd=`pwd`\")" > /dev/null 2>&1 & }
 
 # if you are not using emacs23, the -i=mi machine interface option must be used, unfortunatley, when
 # using the mi mode, the GUI based program control will not use the standard console based GDB commands,
 # e.g. instead of using 'continue', '-exec-continue' will be used, the GDB callback hooks that are used
 # for timer management/adjustment will not work with the 'mi' based commands, if using this emacs version,
 # you must type in the standard GDB commands from the GDB prompt command sub-window
-#gdbEmacs() { emacs -g 220x50 --eval "(gdb \"gdb -i=mi ${targetProgram} -x ${timerHooksFile} --cd=`pwd`\")" > /dev/null 2>&1 & }
+gdbEmacs() { emacs -g 220x50 --eval "(gdb \"gdb -i=mi ${targetProgram} -x ${timerHooksFile} --cd=`pwd`\")" > /dev/null 2>&1 & }
 
-gdbEmacs
+# run the version of emacs that is installed on your system, emacs23 is recommended,
+# but if not available, just run 'gdbEmacs'
+gdbEmacs23
