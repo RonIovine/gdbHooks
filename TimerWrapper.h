@@ -50,13 +50,13 @@ int getTimeOfDay(struct timeval *tv, struct timezone *tz);
 unsigned long long getEpochTimeUsec(void);
 
 ////////////////////////////////////////////////////////////////////////////////
-// this function will return the number of usec since the epoch adjusted for
+// this function will return the number of msec since the epoch adjusted for
 // any time spent at a GDB breakpoint
 ////////////////////////////////////////////////////////////////////////////////
 unsigned long long getEpochTimeMsec(void);
 
 ////////////////////////////////////////////////////////////////////////////////
-// this function will return the number of usec since the epoch adjusted for
+// this function will return the number of sec since the epoch adjusted for
 // any time spent at a GDB breakpoint
 ////////////////////////////////////////////////////////////////////////////////
 unsigned long long getEpochTimeSec(void);
@@ -65,7 +65,7 @@ unsigned long long getEpochTimeSec(void);
 // set the programs start time, this will establish a baseline for all future
 // calls to all the below getElapsedTimeXXX functions, this function should be
 // called per-the example in the gdbHooksDemo.cc program.  It should be called
-// before the 'main' as part of a class bases instantiation.
+// before the 'main' as part of a class based instantiation.
 ////////////////////////////////////////////////////////////////////////////////
 void setStartTime(void);
 
