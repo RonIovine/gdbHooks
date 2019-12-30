@@ -106,8 +106,8 @@ GNU gdb (Ubuntu 7.7.1-0ubuntu5~14.04.3) 7.7.1
 ***It is recommended to use emacs23 for the emacs GUI front end.  This version of emacs
 does not need the -i=mi option and will use the native GDB console based commands for it's
 GUI based control.  This will allow all timer hooks to work correctly with the GUI based
-program control.  If `emacs23` is not available, modify the gdbEmacs shell script and run
-the command `gdbEmacs` instead of `gdbEmacs23` at the end of the file.***
+program control.  If `emacs23` is not available, the `gdbEmacs` shell script will detect
+that and run the standard installed `emacs` instead.***
 
 ***IMPORTANT NOTE: When running with a non-emacs23 version of emacs or later, DO NOT use
 any of the graphical buttons (i.e. `run`, `continue` etc) for program control and execution.
@@ -115,8 +115,8 @@ This is because with the latest Emacs/GUD/GDB intgegration, it uses the gud-mi b
 interface for the graphical commands, so all of the gdb commands are preceeded with
 the `-exec-` prefix, i.e. `-exec-continue` as opposed to just `continue` etc.  I have
 not found a way to add gdb callback hooks for any of the `-exec-` based command formats.
-If anyone knows of a way to do this, I would greatly appreciate any info on this.
-For an emacs version other that emacs23, all program constol should be done via the gdb
+If anyone knows of a way to do this, I would greatly appreciate any info on this.  For
+an `emacs` version other that `emacs23`, all program control should be done via the gdb
 command line prompt sub-window and enter the same commands as the above CLI based example.***
 
 There is a simple shell script wrapper around the `gdb` command line program.

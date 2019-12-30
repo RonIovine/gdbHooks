@@ -33,6 +33,20 @@ gdbEmacs23() { emacs23 -bg white -g 220x50 --eval "(gdb \"gdb --annotate=3 ${tar
 # you must type in the standard GDB commands from the GDB prompt command sub-window
 gdbEmacs() { emacs -bg white -g 220x50 --eval "(gdb \"gdb -i=mi ${targetProgram} -x ${timerHooksFile} --cd=`pwd`\")" > /dev/null 2>&1 & }
 
-# run the version of emacs that is installed on your system, emacs23 is recommended,
+# run the version of emacs that is installed on our system, emacs23 is recommended,
 # but if not available, just run 'gdbEmacs'
-gdbEmacs23
+if hash emacs23 2>/dev/null
+then
+  echo "Starting emacs23 in GDB/GUD mode"
+  gdbEmacs23
+elif hash emacs 2>/dev/null
+then
+  echo "Starting emacs in GDB/GUD mode, note, do not use GUI buttons for program control"
+  echo "Use gdb commands directly in gdb sub-window, see included README for full details"
+  echo "Install emacs23 for full GUI based program control capability"
+  echo "Example install for Ubuntu based systems: 'sudo apt-get install emacs23'"
+  gdbEmacs
+else
+  echo "Emacs not found, install emacs (preferably emacs23)"
+  echo "Example install for Ubuntu based systems: 'sudo apt-get install emacs23'"
+fi
