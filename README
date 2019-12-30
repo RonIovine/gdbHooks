@@ -27,7 +27,11 @@ To setup for emacs use, copy the included `.emacs` file to your home directory a
 the file per the instructions in the comments.  Also, place the shell scripts `gdbCli`
 and `gdbEmacs` and the `timerHooks` file in other locations as necessary and edit the
 `gdbCli` and `gdbEmacs` files and change the location of the `timerHooks` file as
-necessary.
+necessary.  When using emacs for the graphical GDB front end, it is recommended to use
+emacs23, the reasons are described below in the Emacs Mode section.  If emacs23 is not
+available on your host, it should be installed as follows, ex for Ubuntu:
+
+$ sudo apt-get install emacs23
 
 CLI Mode:
 
