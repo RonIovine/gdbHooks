@@ -35,8 +35,8 @@ the file per the instructions in the comments.  Also, place the shell scripts `g
 and `gdbEmacs` and the `timerHooks` file in other locations as necessary and edit the
 `gdbCli` and `gdbEmacs` files and change the location of the `timerHooks` file as
 necessary.  When using emacs for the graphical GDB front end, it is recommended to use
-emacs23, the reasons are described below in the Emacs Mode section.  If emacs23 is not
-available on your host, it should be installed as follows, ex for Ubuntu:
+emacs23, the reasons are described below in the [Emacs Mode](#emacsMode) section.  If
+emacs23 is not available on your host, it should be installed as follows, ex for Ubuntu:
 
 `$ sudo apt-get install emacs23`
 
